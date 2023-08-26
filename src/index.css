@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.input {
+  @apply flex flex-col items-center w-[90%] mx-auto;
+}
+
+.inputfield {
+  @apply border border-gray-700 w-[100%] rounded-lg indent-2;
+}
