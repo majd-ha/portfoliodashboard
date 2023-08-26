@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 export default function ModifyProject() {
+  const base = "https://backenddashboard.onrender.com";
   const [link, setlink] = useState("");
   const [description, setdescription] = useState("");
   const [dev, setdev] = useState(false);
   const { id } = useParams();
   const [name, setname] = useState("");
   const handlesubmit = async () => {
-    const res = await fetch(`http://127.0.0.1:3001/modify/${id}`, {
+    const res = await fetch(`${base}/modify/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -23,7 +24,7 @@ export default function ModifyProject() {
   };
   useEffect(() => {
     const getone = async () => {
-      const res = await fetch(`http://127.0.0.1:3001/getone/${id}`, {
+      const res = await fetch(`${base}/getone/${id}`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("token")}`,

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Login({ isAuth, setIsAuth }) {
+  const base = "https://backenddashboard.onrender.com";
   const navigate = useNavigate();
   const [Email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -9,7 +10,7 @@ export default function Login({ isAuth, setIsAuth }) {
     if (!Email || !password) {
       setMsg("all fields must be filled");
     } else {
-      const res = await fetch("http://127.0.0.1:3001/login", {
+      const res = await fetch(`${base}/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

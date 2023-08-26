@@ -3,6 +3,7 @@ import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CustomInput from "../components/CustomInput";
 export default function AddProject() {
+  const base = "https://backenddashboard.onrender.com";
   const inputref = useRef();
   const [name, setname] = useState("");
   const [link, setlink] = useState("");
@@ -19,7 +20,7 @@ export default function AddProject() {
     formdata.append("dev", dev);
     formdata.append("description", description);
     console.log(formdata.values());
-    const res = await axios.post("http://127.0.0.1:3001/addproject", formdata, {
+    const res = await axios.post(`${base}/addproject`, formdata, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },

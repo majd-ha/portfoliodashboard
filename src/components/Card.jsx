@@ -2,8 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Card({ el, setChanged }) {
+  const base = "https://backenddashboard.onrender.com";
   const removeProject = async () => {
-    const res = await fetch(`http://127.0.0.1:3001/delete/${el._id}`, {
+    const res = await fetch(`${base}/delete/${el._id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -55,7 +56,7 @@ export default function Card({ el, setChanged }) {
         </div>
         <div className=" col-span-1 row-span-5">
           <img
-            src={`http://127.0.0.1:3001/images/${el.img}`}
+            src={`${base}/images/${el.img}`}
             alt="f"
             className="object-contain w-[90%] row-span-5"
           />

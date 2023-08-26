@@ -3,11 +3,12 @@ import Card from "../components/Card";
 import NavBar from "../components/NavBar";
 
 export default function HomePage() {
+  const base = "https://backenddashboard.onrender.com";
   const [projects, setProjects] = useState([]);
   const [changed, setChanged] = useState(false);
   useEffect(() => {
     const getall = async () => {
-      const res = await fetch("http://127.0.0.1:3001/");
+      const res = await fetch(`${base}/`);
       const data = await res.json();
       setProjects(data.projects);
     };
